@@ -31,3 +31,13 @@ class Testimony(models.Model):
     address = models.CharField(max_length=60)
     tel = models.CharField(max_length=12)
     testimony = models.TextField()
+
+
+class Event(models.Model):
+    title = models.CharField(max_length=30)
+    venue = models.CharField(max_length=200)
+    flier = models.ImageField()
+    date = models.DateTimeField()
+
+    def __str__(self):
+        return self.title
