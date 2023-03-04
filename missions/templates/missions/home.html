@@ -1,0 +1,143 @@
+{% extends 'missions/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<p></p>
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'images/discipleship.png' %}" class="d-block w-100" alt="...">
+    </div>
+    {% for image in images %}
+    <div class="carousel-item">
+      <img src="{{image.display.url}}" class="d-block w-100" alt="...">
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+<section class="container text-center">
+  <h3>Welcome</h3>
+
+  <hr> <br>
+  <div class="row">
+    <div class="col-md-3 mb-3">
+      <a href="">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/media.png' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Media
+            </h5>
+              <p>Get access to all our upcoming Programs and events</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-3 mb-3">
+      <a href="">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/sermon.png' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Sermons
+            </h5>
+                <p>Download and Listens to Sermons</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-3 mb-3">
+      <a href="">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/testimony.png' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Testimony
+            </h5>
+            Share what the Lord has done for you with the rest of the believers on the globe
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 mb-3">
+      <a href="">
+        <div class="card mt-20">
+          <img class="card-img-top" src="{% static 'images/donate.png' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Donate
+            </h5>
+            Support the Outreach Africa Missions Incorporation today. God bless you immensely as you do
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-3 mb-3">
+      <a href="">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/about.png' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Know more about Outreach Africa Missions
+            </h5>
+                Get to Know Evangelist Emma Ibrahim and the mandate God has given Him to this generation, to Africa and the World at large
+
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-3 mb-3">
+      <a href="">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/contact.png' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Contact Us
+            </h5>
+            Reach out Outreach Africa Missions through any of our platforms
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+
+</section>
+<section>
+  <form method="POST" action="">
+    {% csrf_token %}
+  <div class="container">
+    <div class="text-center">
+    <h3>Drop a Message</h3>
+    </div>
+    <div class="input-group input-group-sm mb-3">
+  <span class="input-group-text" >NAME</span>
+      {{form.name}}
+<!--  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">-->
+</div>
+    <div class="input-group input-group-sm mb-3">
+  <span class="input-group-text" >LOCATION</span>
+      {{form.location}}
+<!--  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">-->
+</div>
+    <div class="form-floating">
+      {{form.message}}
+<!--  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>-->
+  <label for="floatingTextarea2">Message</label>
+</div><br>
+    <div class="d-grid gap-2 col-6 mx-auto">
+    <button class="btn btn-primary" type="submit">Send</button>
+
+</div>
+
+  </div>
+ </form>
+</section>
+<hr>
+
+{% endblock %}
