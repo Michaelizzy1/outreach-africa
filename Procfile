@@ -1,0 +1,1 @@
+web: gunicorn outreach_africa.wsgi --log-file -

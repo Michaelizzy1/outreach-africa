@@ -14,3 +14,20 @@ class Message(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Sermon(models.Model):
+    topic = models.CharField(max_length=80)
+    sermon = models.FileField()
+    location = models.CharField(max_length=100)
+    speaker = models.CharField(max_length=50)
+
+    def __str__(self):
+        return f"{self.topic} - {self.location}"
+
+
+class Testimony(models.Model):
+    name = models.CharField(max_length=50)
+    address = models.CharField(max_length=60)
+    tel = models.CharField(max_length=12)
+    testimony = models.TextField()
